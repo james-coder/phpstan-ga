@@ -16,6 +16,10 @@ ENV COMPOSER_HOME=/composer
 
 RUN echo "memory_limit=-1" > $PHP_INI_DIR/conf.d/memory-limit.ini
 
+# https://github.com/mlocati/docker-php-extension-installer
+COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
+RUN install-php-extensions bcmath intl memcached ssh2 gd
+    
 RUN composer global require phpstan/phpstan ^0.12.25 \
     && composer global require phpstan/extension-installer \
     && composer global require phpstan/phpstan-doctrine \
