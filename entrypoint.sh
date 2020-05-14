@@ -2,6 +2,10 @@
 
 /usr/bin/ssh -T -oStrictHostKeyChecking=accept-new git@github.com || true
 
+ls -al ~/.ssh
+
+ssh-add -l
+
 /composer/vendor/bin/phpstan --version
 
 echo "::group::Installed PHPStan extensions"
