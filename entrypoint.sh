@@ -2,9 +2,10 @@
 
 /usr/bin/ssh -T -oStrictHostKeyChecking=accept-new git@github.com || true
 
-ls -al ~/.ssh
+#ls -al ~/.ssh
+#ssh-add -l
 
-ssh-add -l
+echo "$SSH_AUTH_SOCK"
 
 /composer/vendor/bin/phpstan --version
 
