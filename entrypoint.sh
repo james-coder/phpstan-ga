@@ -6,6 +6,7 @@
 #ssh-add -l
 
 echo "$SSH_AUTH_SOCK"
+ls -altr $SSH_AUTH_SOCK
 
 /composer/vendor/bin/phpstan --version
 
