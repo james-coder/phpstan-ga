@@ -24,7 +24,7 @@ RUN apt-get update && \
     apt-get install -y git unzip
 
 # Test running commands ran by composer
-RUN mkdir /github/workspace/vendor/gitglacier/
+RUN mkdir -p /github/workspace/vendor/gitglacier/
 RUN git clone --no-checkout 'git@github.com:gitglacier/ardent.git' '/github/workspace/vendor/gitglacier/ardent' && cd '/github/workspace/vendor/gitglacier/ardent' && git remote add composer 'git@github.com:gitglacier/ardent.git' && git fetch composer && git remote set-url origin 'git@github.com:gitglacier/ardent.git' && git remote set-url composer 'git@github.com:gitglacier/ardent.git'
     
 RUN composer global require phpstan/phpstan ^0.12.25 \
