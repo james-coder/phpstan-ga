@@ -24,7 +24,7 @@ RUN apt-get update && \
     apt-get install -y git unzip
 
 # Resolve "Host key verification failed." for github.com
-RUN ssh -T -oStrictHostKeyChecking=accept-new git@github.com || true
+#RUN ssh -T -oStrictHostKeyChecking=accept-new git@github.com || true
 
 #RUN mkdir -p /github/workspace/vendor/gitglacier/
 #RUN ls -al ~/.ssh
