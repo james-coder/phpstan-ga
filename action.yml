@@ -9,7 +9,9 @@ branding:
 
 inputs:
   args:
+    description: 'args'
   repo-token:
+    description: 'repo-token'
   github_token:
     description: 'GITHUB_TOKEN.'
     default: '${{ github.token }}'
