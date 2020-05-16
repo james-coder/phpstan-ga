@@ -22,5 +22,7 @@ echo "::group::Installed PHPStan extensions"
 composer show | grep phpstan
 echo "::endgroup::"
 
+export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
+
 ./vendor/bin/phpstan --version
-./vendor/bin/phpstan $* --error-format=checkstyle
+./vendor/bin/phpstan $* --error-format=checkstyle | reviewdog -f=checkstyle -reporter="${INPUT_REPORTER}" -level="${INPUT_LEVEL}"
