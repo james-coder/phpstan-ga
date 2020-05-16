@@ -1,14 +1,26 @@
 # https://help.github.com/en/articles/metadata-syntax-for-github-actions
 
+name: 'OSKAR-phpstan'
 author: 'OskarStark'
-
+description: 'Use PHPStan via GithubAction.'
 branding:
     icon: 'check'
     color: 'blue'
 
-description: 'Use PHPStan via GithubAction.'
-
-name: 'OSKAR-phpstan'
+inputs:
+  github_token:
+    description: 'GITHUB_TOKEN.'
+    default: '${{ github.token }}'
+  level:
+    description: 'Report level for reviewdog [info,warning,error]'
+    default: 'info'
+  reporter:
+    description: 'Reporter of reviewdog command [github-pr-check,github-pr-review]'
+    default: 'github-pr-check'
+  checkstyle_config:
+    description: 'Checkstyle config file'
+    required: true
+    default: 'google_checks.xml'
 
 runs:
     using: 'docker'
