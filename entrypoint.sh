@@ -1,5 +1,8 @@
 #!/bin/sh -l
 
+# SSH must be 7.6 or newer for "accept-new".
+/usr/bin/ssh -V
+
 # Add Github host key authentication.
 /usr/bin/ssh -T -oStrictHostKeyChecking=accept-new git@github.com || true
 
