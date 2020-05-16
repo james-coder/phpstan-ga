@@ -8,6 +8,8 @@ branding:
     color: 'blue'
 
 inputs:
+  args:
+  repo-token:
   github_token:
     description: 'GITHUB_TOKEN.'
     default: '${{ github.token }}'
