@@ -1,5 +1,6 @@
 #!/bin/sh -l
 
+# Add Github host key authentication.
 /usr/bin/ssh -T -oStrictHostKeyChecking=accept-new git@github.com || true
 
 #ls -al ~/.ssh
