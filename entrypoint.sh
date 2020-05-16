@@ -23,4 +23,4 @@ composer show | grep phpstan
 echo "::endgroup::"
 
 ./vendor/bin/phpstan --version
-./vendor/bin/phpstan $*
+./vendor/bin/phpstan $* --error-format=checkstyle
