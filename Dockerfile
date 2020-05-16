@@ -9,7 +9,9 @@ LABEL "repository"="http://github.com/oskarstark/phpstan-ga"
 LABEL "homepage"="http://github.com/actions"
 LABEL "maintainer"="Oskar Stark <oskarstark@googlemail.com>"
 
-COPY --from=composer:1.9.3 /usr/bin/composer /usr/local/bin/composer
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+
+RUN wget -O - -q https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b /usr/local/bin/ ${REVIEWDOG_VERSION}
 
 RUN mkdir /composer
 ENV COMPOSER_HOME=/composer
