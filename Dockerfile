@@ -32,15 +32,15 @@ RUN apt-get update && \
 
 #RUN git clone --no-checkout 'git@github.com:gitglacier/ardent.git' '/github/workspace/vendor/gitglacier/ardent' && cd '/github/workspace/vendor/gitglacier/ardent' && git remote add composer 'git@github.com:gitglacier/ardent.git' && git fetch composer && git remote set-url origin 'git@github.com:gitglacier/ardent.git' && git remote set-url composer 'git@github.com:gitglacier/ardent.git'
     
-RUN composer global require phpstan/phpstan ^0.12.25 \
-    && composer global require phpstan/extension-installer \
-    && composer global require phpstan/phpstan-doctrine \
-    && composer global require phpstan/phpstan-phpunit \
-    && composer global require phpstan/phpstan-nette \
-    && composer global require phpstan/phpstan-symfony \
-    && composer global require phpstan/phpstan-mockery \
-    && composer global require phpstan/phpstan-webmozart-assert \
-    && composer global show | grep phpstan
+#RUN composer global require phpstan/phpstan ^0.12.25 \
+#    && composer global require phpstan/extension-installer \
+#    && composer global require phpstan/phpstan-doctrine \
+#    && composer global require phpstan/phpstan-phpunit \
+#    && composer global require phpstan/phpstan-nette \
+#    && composer global require phpstan/phpstan-symfony \
+#    && composer global require phpstan/phpstan-mockery \
+#    && composer global require phpstan/phpstan-webmozart-assert \
+#    && composer global show | grep phpstan
 
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
