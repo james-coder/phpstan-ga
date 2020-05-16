@@ -11,6 +11,7 @@ LABEL "maintainer"="Oskar Stark <oskarstark@googlemail.com>"
 
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
+ENV REVIEWDOG_VERSION=v0.9.17
 RUN wget -O - -q https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b /usr/local/bin/ ${REVIEWDOG_VERSION}
 
 RUN mkdir /composer
