@@ -1,5 +1,8 @@
 #!/bin/sh -l
 
+# Add Github host key authentication.
+/usr/bin/ssh -T -oStrictHostKeyChecking=accept-new git@github.com || true
+
 IGNORE_PLATFORM_REQS=""
 if [ "$CHECK_PLATFORM_REQUIREMENTS" = "false" ]; then
     IGNORE_PLATFORM_REQS="--ignore-platform-reqs"
