@@ -23,15 +23,6 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y git unzip
 
-# Resolve "Host key verification failed." for github.com
-#RUN ssh -T -oStrictHostKeyChecking=accept-new git@github.com || true
-
-#RUN mkdir -p /github/workspace/vendor/gitglacier/
-#RUN ls -al ~/.ssh
-#RUN ssh-add -l
-
-#RUN git clone --no-checkout 'git@github.com:gitglacier/ardent.git' '/github/workspace/vendor/gitglacier/ardent' && cd '/github/workspace/vendor/gitglacier/ardent' && git remote add composer 'git@github.com:gitglacier/ardent.git' && git fetch composer && git remote set-url origin 'git@github.com:gitglacier/ardent.git' && git remote set-url composer 'git@github.com:gitglacier/ardent.git'
-    
 #RUN composer global require phpstan/phpstan ^0.12.25 \
 #    && composer global require phpstan/extension-installer \
 #    && composer global require phpstan/phpstan-doctrine \
