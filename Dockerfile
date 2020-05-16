@@ -11,9 +11,6 @@ LABEL "maintainer"="Oskar Stark <oskarstark@googlemail.com>"
 
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
-ENV REVIEWDOG_VERSION=v0.9.17
-RUN wget -O - -q https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b /usr/bin/ ${REVIEWDOG_VERSION}
-
 RUN mkdir /composer
 ENV COMPOSER_HOME=/composer
 
@@ -24,7 +21,10 @@ COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr
 RUN install-php-extensions bcmath intl memcached ssh2 gd zip
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y git unzip
+    apt-get install -y git unzip wget
+
+ENV REVIEWDOG_VERSION=v0.9.17
+RUN wget -O - -q https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b /usr/local/bin/ ${REVIEWDOG_VERSION}
 
 #RUN composer global require phpstan/phpstan ^0.12.25 \
 #    && composer global require phpstan/extension-installer \
