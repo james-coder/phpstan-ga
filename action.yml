@@ -2,7 +2,7 @@
 
 name: 'OSKAR-phpstan'
 author: 'OskarStark'
-description: 'Use PHPStan via GithubAction.'
+description: 'Use PHPStan and PHPCS via GithubAction.'
 branding:
     icon: 'check'
     color: 'blue'
