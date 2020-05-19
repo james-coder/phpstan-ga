@@ -1,4 +1,4 @@
-# GithubAction for PHPStan
+# GithubAction for PHPStan and PHPCS
 
 ## Usage
 
