@@ -6,7 +6,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: PHPStan
-      uses: james-coder/phpstan-ga
+#    - name: PHPStan
+#      uses: james-coder/phpstan-ga
+#      with:
+#        args: analyse src/ --level=5
+    - uses: whoan/docker-build-with-cache-action@v5
       with:
-        args: analyse src/ --level=5
+        username: "${{ secrets.AWS_ACCESS_KEY_ID }}"
+        password: "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
+        #session:  "${{ secrets.AWS_SESSION_TOKEN }}"  # if you need role assumption
+        registry: 513296379324.dkr.ecr.us-east-1.amazonaws.com
+        image_name: github-actions
